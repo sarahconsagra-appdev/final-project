@@ -1,0 +1,110 @@
+<h1>
+  <%= @workshop.title %> Details
+</h1>
+
+<div>
+  <div>
+    <a href="/workshops">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_workshop_form/<%= @workshop.id %>">
+      Edit workshop
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_workshop/<%= @workshop.id %>">
+      Delete workshop
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Title
+  </dt>
+  <dd>
+    <%= @workshop.title %>
+  </dd>
+
+  <dt>
+    Description
+  </dt>
+  <dd>
+    <%= @workshop.description %>
+  </dd>
+
+  <dt>
+    Starts at
+  </dt>
+  <dd>
+    <%= @workshop.starts_at %>
+  </dd>
+
+  <dt>
+    Ends at
+  </dt>
+  <dd>
+    <%= @workshop.ends_at %>
+  </dd>
+
+  <dt>
+    Price
+  </dt>
+  <dd>
+    <%= @workshop.price %>
+  </dd>
+
+  <dt>
+    Provider
+  </dt>
+  <dd>
+    <%= @workshop.provider_id %>
+  </dd>
+
+  <dt>
+    Image
+  </dt>
+  <dd>
+    <%= @workshop.image %>
+  </dd>
+
+  <dt>
+    Capacity
+  </dt>
+  <dd>
+    <%= @workshop.capacity %>
+  </dd>
+
+  <dt>
+    Location
+  </dt>
+  <dd>
+    <%= @workshop.location %>
+  </dd>
+
+  <dt>
+    Reviews
+  </dt>
+  <dd>
+    <%= @workshop.reviews %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@workshop.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@workshop.updated_at) %> ago
+  </dd>
+</dl>
+

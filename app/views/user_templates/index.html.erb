@@ -1,0 +1,39 @@
+<h1>All Experience Providers</h1>
+
+<h4>Get to know the Brio Experience Provider network!</h4>
+
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>City</th>
+    <th>State</th>
+    <th></th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td>
+        <%= user.first_name %>
+      </td>
+      
+    <td>
+        <%= user.last_name %>
+      </td>
+      
+    <td>
+        <%= user.city %>
+      </td>
+      
+    <td>
+        <%= user.state %>
+      </td>
+
+      <td>
+        <a href="/users/<%= user.id %>">
+          Show profile
+        </a>
+      </td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,108 @@
+<h1>
+  Build Your Brio Workshop
+</h1>
+
+<hr>
+
+<%= render("workshop_templates/validation_failures.html.erb") %>
+
+<form action="/insert_workshop_record" method="post">
+  <div>
+    <label for="title">
+      <h4>Workshop Title</h4>
+    </label>
+  </div>
+  <div>Make this short (four words max!) and descriptive. For example, if you're planning a class on memoir writing, "Memoir Writing Workshop" works just fine.</div>
+    <input type="text" id="title" name="title" value="<%= @workshop.title %>">
+
+
+  <div>
+    <label for="description">
+      <h4>Workshop Description</h4>
+    </label>
+  </div>
+    <div>Tell your future attendees a little bit about what to expect from your workshop. What content will you cover? What's your experience with this topic? Is there anything they should consider doing to prepare?</div> 
+
+    <textarea id="description" name="description"><%= @workshop.description %></textarea>
+
+  <div>
+    <label for="starts_at">
+      <h4>Start Time</h4>
+    </label>
+
+    <input type="text" id="starts_at" name="starts_at" value="<%= @workshop.starts_at %>">
+  </div>
+
+  <div>
+    <label for="ends_at">
+      <h4>End Time</h4>
+    </label>
+
+    <input type="text" id="ends_at" name="ends_at" value="<%= @workshop.ends_at %>">
+  </div>
+
+  <div>
+    <label for="price">
+      <h4>Price</h4>
+    </label>
+
+    <input type="text" id="price" name="price" value="<%= @workshop.price %>">
+  </div>
+
+  <div>
+    <label for="provider_id">
+      <h4>Your Name</h4>
+    </label>
+
+    <input type="text" id="provider_id" name="provider_id" value="<%= @workshop.provider_id %>">
+  </div>
+
+  <div>
+    <label for="image">
+      <h4>Image</h4>
+    </label>
+
+    <input type="text" id="image" name="image" value="<%= @workshop.image %>">
+  </div>
+
+  <div>
+    <label for="capacity">
+     <h4>Capacity</h4>
+    </label>
+
+    <input type="text" id="capacity" name="capacity" value="<%= @workshop.capacity %>">
+  </div>
+
+  <div>
+    <label for="location">
+      <h4>Location</h4>
+    </label>
+
+    <input type="text" id="location" name="location" value="<%= @workshop.location %>">
+  </div>
+  
+    <div>
+    <label for="other">
+      <h4>Other</h4>
+    </label>
+    <div>Is there anything else you want to share with future attendees? This is the space to call out things like mobility restrictions (will your activity require a high level of movement / physicality that might be challenging for some?</div>
+    <textarea id="other" name="other"><%= @workshop.other %></textarea>
+
+  
+<p></p>
+
+  <button>
+    Preview My Workshop
+  </button>
+  
+  <button>
+    Publish My Workshop
+  </button>
+  
+</form>
+
+<hr>
+
+<a href="/workshops">
+  Go back
+</a>

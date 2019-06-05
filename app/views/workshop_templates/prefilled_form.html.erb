@@ -1,0 +1,99 @@
+<h1>
+  Edit <%= @workshop.title %>
+</h1>
+
+<hr>
+
+<%= render("workshop_templates/validation_failures.html.erb") %>
+
+<form action="/update_workshop_record/<%= @workshop.id %>" method="post">
+  <div>
+    <label for="title">
+      Title
+    </label>
+
+    <input type="text" id="title" name="title" value="<%= @workshop.title %>">
+  </div>
+
+  <div>
+    <label for="description">
+      Description
+    </label>
+
+    <textarea id="description" name="description" rows="3"><%= @workshop.description %></textarea>
+  </div>
+
+  <div>
+    <label for="starts_at">
+      Starts at
+    </label>
+
+    <input type="text" id="starts_at" name="starts_at" value="<%= @workshop.starts_at %>">
+  </div>
+
+  <div>
+    <label for="ends_at">
+      Ends at
+    </label>
+
+    <input type="text" id="ends_at" name="ends_at" value="<%= @workshop.ends_at %>">
+  </div>
+
+  <div>
+    <label for="price">
+      Price
+    </label>
+
+    <input type="text" id="price" name="price" value="<%= @workshop.price %>">
+  </div>
+
+  <div>
+    <label for="provider_id">
+      Provider
+    </label>
+
+    <input type="text" id="provider_id" name="provider_id" value="<%= @workshop.provider_id %>">
+  </div>
+
+  <div>
+    <label for="image">
+      Image
+    </label>
+
+    <input type="text" id="image" name="image" value="<%= @workshop.image %>">
+  </div>
+
+  <div>
+    <label for="capacity">
+      Capacity
+    </label>
+
+    <input type="text" id="capacity" name="capacity" value="<%= @workshop.capacity %>">
+  </div>
+
+  <div>
+    <label for="location">
+      Location
+    </label>
+
+    <input type="text" id="location" name="location" value="<%= @workshop.location %>">
+  </div>
+
+  <div>
+    <label for="other">
+      Other
+    </label>
+
+    <textarea id="other" name="other" rows="3"><%= @workshop.other %></textarea>
+  </div>
+
+  <button>
+    Update workshop
+  </button>
+</form>
+
+<hr>
+
+<a href="/workshops">
+  Go back
+</a>
