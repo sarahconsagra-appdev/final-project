@@ -15,6 +15,8 @@
 #  state                  :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  photo                  :string
+#  about_me               :text
 #
 # Indexes
 #

@@ -285,6 +285,62 @@
             <% end %>
           </div>
           <!-- Devise Input for state end -->
+          
+          <!-- Devise Input for about_me start -->
+          <div class="form-group">
+            <% about_me_was_invalid = resource.errors.include?(:about_me) %>
+
+            <% about_me_class = "form-control" %>
+
+            <% if was_validated %>
+              <% if about_me_was_invalid %>
+                <% about_me_class << " is-invalid" %>
+              <% else %>
+                <% about_me_class << " is-valid" %>
+              <% end %>
+            <% end %>
+
+            <%= f.label :about_me %>
+
+            <%= f.text_area :about_me, :class => about_me_class, :placeholder => "Enter about me" %>
+
+            <% if about_me_was_invalid %>
+              <% resource.errors.full_messages_for(:about_me).each do |message| %>
+                <div class="invalid-feedback d-flex">
+                  <%= message %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <!-- Devise Input for about_me end -->
+          
+          <!-- Devise Input for photo start -->
+          <div class="form-group">
+            <% photo_was_invalid = resource.errors.include?(:photo) %>
+
+            <% photo_class = "form-control" %>
+
+            <% if was_validated %>
+              <% if photo_was_invalid %>
+                <% photo_class << " is-invalid" %>
+              <% else %>
+                <% photo_class << " is-valid" %>
+              <% end %>
+            <% end %>
+
+            <%= f.label :photo %>
+
+            <%= f.text_field :photo, :class => photo_class, :placeholder => "Enter photo" %>
+
+            <% if photo_was_invalid %>
+              <% resource.errors.full_messages_for(:photo).each do |message| %>
+                <div class="invalid-feedback d-flex">
+                  <%= message %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <!-- Devise Input for photo end -->
           <%= f.submit "Update", class: "btn btn-block btn-outline-primary" %>
         <% end %>
 

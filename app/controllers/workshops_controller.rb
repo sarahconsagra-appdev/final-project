@@ -7,7 +7,7 @@ class WorkshopsController < ApplicationController
   end
 
   def myworkshops
-    @myworkshops = Workshop.where({:provider_id => @user}).all
+    @myworkshops = Workshop.where({:provider_id => current_user.id}).all
     
     render("workshop_templates/myworkshops.html.erb")
   end
@@ -31,8 +31,8 @@ class WorkshopsController < ApplicationController
     @workshop.description = params.fetch("description")
     @workshop.starts_at = params.fetch("starts_at")
     @workshop.ends_at = params.fetch("ends_at")
-    @workshop.price = params.fetch("price")
-    @workshop.provider_id = params.fetch("provider_id")
+    @workshop.price = params.fetch("price").gsub("$","")
+    @workshop.provider_id = current_user.id
     @workshop.image = params.fetch("image")
     @workshop.capacity = params.fetch("capacity")
     @workshop.location = params.fetch("location")
