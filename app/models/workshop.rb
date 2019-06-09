@@ -20,4 +20,9 @@
 
 class Workshop < ApplicationRecord
     belongs_to :provider, :class_name => "User"
+    
+    def providername
+        user_of_interest = User.where({:id => self.provider_id})
+        return user_of_interest.pluck(:first_name)
+    end
 end

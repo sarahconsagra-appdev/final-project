@@ -1,5 +1,12 @@
 class WorkshopsController < ApplicationController
 
+def require_permission
+  if current_user != Photo.find(params[:id]).user
+    redirect_to root_path
+    #Or do something else here
+  end
+end
+
   def allworkshops
     @allworkshops = Workshop.all
 
@@ -8,10 +15,9 @@ class WorkshopsController < ApplicationController
 
   def myworkshops
     @myworkshops = Workshop.where({:provider_id => current_user.id}).all
-    
     render("workshop_templates/myworkshops.html.erb")
   end
-
+  
   def details
     @workshop = Workshop.where({ :id => params.fetch("id_to_display") }).first
 

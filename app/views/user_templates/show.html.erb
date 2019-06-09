@@ -1,2 +1,96 @@
 <h1>Meet <%= @user.first_name%> <%=@user.last_name%></h1>
 
+<img src="<%=@user.photo%>">
+
+<% if @user.about_me == "nil" %>
+    <div> </div>
+<% else %>
+<dt>
+    About <%= @user.first_name%>:
+</dt>
+<dd>
+    <%= @user.about_me%>
+</dd>
+<% end %> 
+
+<% if @user.about_me == "nil" %>
+    <div> </div>
+<% else %>
+<dt>
+    <%= @user.first_name%> is based in:
+</dt>
+
+<dd>
+    <%= @user.city%>, <%= @user.state%>
+</dd>
+<% end %>
+
+
+<% if @user.hosted_workshops.empty? && @user == current_user %>
+  <div>You haven't hosted any workshops yet!</div>
+<% elsif @user.hosted_workshops.empty? %>
+  <div><%=@user.first_name%> hasn't hosted any workshops yet!</div>
+<% else %>
+<dt>
+    <%=@user.first_name%> has hosted <%= @user.hosted_workshops.count%> workshops: 
+</dt>
+<table>
+  <tr>
+
+    <th>
+      Title
+    </th>
+
+    <th>
+      Description
+    </th>
+
+    <th>
+      Image
+    </th>
+
+    <th>
+    </th>
+  </tr>
+<% @user.hosted_workshops.each do |workshop| %>
+  <tr>
+    <td>
+      <%= workshop.title %>
+    </td>
+
+    <td>
+      <%= workshop.description %>
+    </td>
+
+    <td>
+      <image src="<%= workshop.image %>">
+    </td>
+
+    <td>
+      <a href="/workshops/<%= workshop.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+<% end %>
+</table>
+<% end %>
+
+<hr>
+
+<div>
+    <h4>Contact</h4>
+</div>
+
+<% if @user.phone_number == "nil" %> 
+<div>
+    <%= mail_to @user.email, "Email Me" %>
+</div>
+
+<% else %>
+<div>
+    <a href="tel:" <%= @user.phone_number%>> Call Me
+    <%= mail_to @user.email, "Email Me" %>
+</div>
+<% end %>
+

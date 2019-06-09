@@ -1,18 +1,8 @@
 <h1>
   Brio Workshops
 </h1>
-
-<a href="/new_workshop_form">
-  Add a new workshop
-</a>
-
-<hr>
-
 <table>
   <tr>
-    <th>
-      ID
-    </th>
 
     <th>
       Title
@@ -50,27 +40,10 @@
       Location
     </th>
 
-    <th>
-      Reviews
-    </th>
-
-    <th>
-      Created at
-    </th>
-
-    <th>
-      Updated at
-    </th>
-
-    <th>
-    </th>
   </tr>
 
   <% @allworkshops.each do |workshop| %>
   <tr>
-    <td>
-      <%= workshop.id %>
-    </td>
 
     <td>
       <%= workshop.title %>
@@ -89,15 +62,16 @@
     </td>
 
     <td>
-      <%= workshop.price %>
+      $<%= workshop.price %>
     </td>
 
     <td>
+      <a href="/users/<%= workshop.provider.id%>">
       <%= workshop.provider.first_name %>
     </td>
 
     <td>
-      <%= workshop.image %>
+      <image src="<%= workshop.image %>">
     </td>
 
     <td>
@@ -106,18 +80,6 @@
 
     <td>
       <%= workshop.location %>
-    </td>
-
-    <td>
-      <%= workshop.reviews %>
-    </td>
-
-    <td>
-      <%= time_ago_in_words(workshop.created_at) %> ago
-    </td>
-
-    <td>
-      <%= time_ago_in_words(workshop.updated_at) %> ago
     </td>
 
     <td>

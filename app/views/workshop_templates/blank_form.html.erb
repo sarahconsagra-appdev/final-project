@@ -50,19 +50,11 @@
   </div>
 
   <div>
-    <label for="provider_id">
-      <h4>Your Name</h4>
-    </label>
-
-    <input type="text" id="provider_id" name="provider_id" value="<%= @workshop.provider_id %>">
-  </div>
-
-  <div>
     <label for="image">
       <h4>Image</h4>
     </label>
 
-    <input type="text" id="image" name="image" value="<%= @workshop.image %>">
+    <input type="text" id="image" name="image" placeholder="Paste your image URL here" value="<%= @workshop.image%>">
   </div>
 
   <div>
@@ -70,7 +62,7 @@
      <h4>Capacity</h4>
     </label>
 
-    <input type="text" id="capacity" name="capacity" value="<%= @workshop.capacity %>">
+    <input type="text" id="capacity" name="capacity" placeholder="How many people can you host?" value="<%= @workshop.capacity %>">
   </div>
 
   <div>
@@ -78,7 +70,7 @@
       <h4>Location</h4>
     </label>
 
-    <input type="text" id="location" name="location" value="<%= @workshop.location %>">
+    <input type="text" id="location" name="location" placeholder="Share your location address" value="<%= @workshop.location %>">
   </div>
   
     <div>

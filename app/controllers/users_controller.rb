@@ -10,4 +10,9 @@ class UsersController < ApplicationController
     render("user_templates/show.html.erb")
   end
   
+  def myprofile
+    @user = current_user
+    render("user_templates/myprofile.html.erb")
+  end
+  
 end

@@ -1,0 +1,74 @@
+<h1>Hi, <%= @user.first_name%> <%=@user.last_name%>!</h1>
+
+<img src="<%=@user.photo%>">
+
+<div>
+    <h4>About <%= @user.first_name%></h4>
+    <%= @user.about_me%>
+</div>
+
+<div>
+    
+</div>
+
+<div>
+    <h4><%= @user.first_name%> is based in <%= @user.city%>, <%= @user.state%></h4>
+</div>
+
+<div>
+    <h4>Workshops Hosted:</h4>
+</div>
+
+<% if @user.hosted_workshops.empty? %>
+  <div><%=@user.first_name%> hasn't hosted any workshops yet!</div>
+<% else %>
+<table>
+  <tr>
+
+    <th>
+      Title
+    </th>
+
+    <th>
+      Description
+    </th>
+
+    <th>
+      Image
+    </th>
+
+    <th>
+    </th>
+  </tr>
+<% @user.hosted_workshops.each do |workshop| %>
+  <tr>
+    <td>
+      <%= workshop.title %>
+    </td>
+
+    <td>
+      <%= workshop.description %>
+    </td>
+
+    <td>
+      <image src="<%= workshop.image %>">
+    </td>
+
+    <td>
+      <a href="/workshops/<%= workshop.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+<% end %>
+</table>
+<% end %>
+
+<div>
+    <h4>Contact</h4>
+</div>
+
+<div>
+    <a href="tel:"> <%= @user.phone_number%>
+    <%= mail_to @user.email, "Email Me" %>
+</div>

@@ -8,11 +8,11 @@
 
 <hr>
 
+<% if @myworkshops.empty? %>
+  <div>It looks like you haven't added any workshops yet. Visit the "Add a new workshop" link above to build your first workshop now!</div>
+<% else %>
 <table>
   <tr>
-    <th>
-      ID
-    </th>
 
     <th>
       Title
@@ -55,23 +55,11 @@
     </th>
 
     <th>
-      Created at
-    </th>
-
-    <th>
-      Updated at
-    </th>
-
-    <th>
     </th>
   </tr>
 
-  <% @myworkshops.each do |workshop| %>
+<% @myworkshops.each do |workshop| %>
   <tr>
-    <td>
-      <%= workshop.id %>
-    </td>
-
     <td>
       <%= workshop.title %>
     </td>
@@ -97,7 +85,7 @@
     </td>
 
     <td>
-      <%= workshop.image %>
+      <image src="<%= workshop.image %>">
     </td>
 
     <td>
@@ -113,18 +101,11 @@
     </td>
 
     <td>
-      <%= time_ago_in_words(workshop.created_at) %> ago
-    </td>
-
-    <td>
-      <%= time_ago_in_words(workshop.updated_at) %> ago
-    </td>
-
-    <td>
       <a href="/workshops/<%= workshop.id %>">
         Show details
       </a>
     </td>
   </tr>
-  <% end %>
 </table>
+<% end %>
+<% end %>

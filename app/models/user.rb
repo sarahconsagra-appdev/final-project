@@ -29,7 +29,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
+
+  has_many :hosted_workshops, :class_name => "Workshop", :foreign_key => "provider_id", :dependent => :destroy
+  has_many :bookings, :foreign_key => "senior_id", :dependent => :destroy
+  has_many :booked_workshops, :through => :bookings, :source => :workshop
+
 end
 
 

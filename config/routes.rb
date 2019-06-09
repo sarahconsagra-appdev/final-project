@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   match("/", { :controller => "workshops", :action => "allworkshops", :via => "get" })
   match("/myworkshops", { :controller => "workshops", :action => "myworkshops", :via => "get" })
   
+  match("/myprofile", { :controller => "users", :action => "myprofile", :via => "get"})
+  
   # CREATE
   match("/new_workshop_form", { :controller => "workshops", :action => "blank_form", :via => "get" })
   match("/insert_workshop_record", { :controller => "workshops", :action => "save_new_info", :via => "post" })
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
   # READ
   match("/workshops", { :controller => "workshops", :action => "allworkshops", :via => "get" })
   match("/workshops/:id_to_display", { :controller => "workshops", :action => "details", :via => "get" })
+
 
   # UPDATE
   match("/existing_workshop_form/:id_to_prefill", { :controller => "workshops", :action => "prefilled_form", :via => "get" })
