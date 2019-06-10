@@ -2,7 +2,7 @@
 
 <img src="<%=@user.photo%>">
 
-<% if @user.about_me == "nil" %>
+<% if @user.about_me == nil %>
     <div> </div>
 <% else %>
 <dt>
@@ -13,7 +13,7 @@
 </dd>
 <% end %> 
 
-<% if @user.about_me == "nil" %>
+<% if @user.city == nil && @user.state == nil%>
     <div> </div>
 <% else %>
 <dt>
@@ -79,18 +79,18 @@
 <hr>
 
 <div>
-    <h4>Contact</h4>
+    <h4>Connect with <%=@user.first_name%></h4>
 </div>
 
-<% if @user.phone_number == "nil" %> 
+<% if @user.phone_number == nil %> 
 <div>
-    <%= mail_to @user.email, "Email Me" %>
+    <%= mail_to @user.email, "Email" %>
 </div>
 
 <% else %>
 <div>
-    <a href="tel:" <%= @user.phone_number%>> Call Me
-    <%= mail_to @user.email, "Email Me" %>
+    <a href="tel:" <%= @user.phone_number%>> Call
+    <%= mail_to @user.email, "Email"%> 
 </div>
 <% end %>
 

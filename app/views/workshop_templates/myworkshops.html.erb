@@ -13,7 +13,6 @@
 <% else %>
 <table>
   <tr>
-
     <th>
       Title
     </th>
@@ -35,10 +34,6 @@
     </th>
 
     <th>
-      Provider
-    </th>
-
-    <th>
       Image
     </th>
 
@@ -52,9 +47,6 @@
 
     <th>
       Reviews
-    </th>
-
-    <th>
     </th>
   </tr>
 
@@ -77,11 +69,7 @@
     </td>
 
     <td>
-      <%= workshop.price %>
-    </td>
-
-    <td>
-      <%= workshop.provider.first_name %> <%= workshop.provider.last_name %>
+      $<%= workshop.price %>
     </td>
 
     <td>
@@ -97,15 +85,11 @@
     </td>
 
     <td>
-      <%= workshop.reviews %>
-    </td>
-
-    <td>
       <a href="/workshops/<%= workshop.id %>">
         Show details
       </a>
     </td>
   </tr>
+  <% end %>
 </table>
-<% end %>
 <% end %>

@@ -10,6 +10,7 @@
     <!-- You should replace this with a real stylesheet ASAP; probably Bootstrap, commented out below. -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css">
 
+    <link rel="stylesheet" href="/bootstrap.css">
     <!-- Connect Font Awesome CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
@@ -22,11 +23,11 @@
 
     <!-- START BOOTSTRAP -->
     <!-- Connect Bootstrap CSS -->
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
 
     <!-- Make it responsive to small screens -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,11 +36,25 @@
   
   <body>
     <nav>
-        <%if current_user.photo == "nil"%>
-        <div> </div>
-        <% else %>
-        <img src="<%= current_user.photo %>" width="150px" height="100px">
-        <% end %>
+      <img src="https://i.ibb.co/2hpVRjf/Brio-Logo.png" width="100" height="100">
+      <% if current_user.blank? %>
+          <div></div>
+          <a href="/users/sign_in" align="right">
+            Sign in
+          </a>
+    
+          <a href
+        
+          <a href="/users/sign_up" align="right">
+            Sign up
+          </a>
+      
+      <% else %>
+      
+      <img src="<%= current_user.photo %>" width="150px" height="100px" align="right">
+      <div>
+        <a href "/Edit my profile></a>
+      </div>
       
       <div>
         <h2>Welcome to Brio, <%= current_user.first_name %>!</h2>
@@ -75,40 +90,8 @@
           All Experience Providers
         </a>
       </div>
-
-      <hr>
-
-      <% if current_user.blank? %>
-        <div>
-          <a href="/users/sign_in">
-            Sign in
-          </a>
-        </div>
-
-        <div>
-          <a href="/users/sign_up">
-            Sign up
-          </a>
-        </div>
-      <% else %>
-        <div>
-          <a href="/users/<%= current_user.id %>">
-            View My Profile
-          </a>
-        </div>
-        
-        <div>
-          <a href="/users/edit">
-            Edit My Profile
-          </a>
-        </div>
-
-        <div>
-          <a href="/users/sign_out" data-method="delete">
-            Sign out
-          </a>
-        </div>
-      <% end %>
+    
+    <% end %>
     </nav>
 
      <hr>
