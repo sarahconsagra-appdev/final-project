@@ -2,11 +2,13 @@
 
 <img src="<%=@user.photo%>">
 
-<% if @user.about_me == nil %>
-    <div> </div>
+<% if @user.about_me == nil && @user == current_user %>
+    <div><h4>Visit the "Edit My Profile" link above to customize your profile and help users get to know you better.</h4></div>
+<% elsif @user.about_me == nil%>
+<div> </div>
 <% else %>
 <dt>
-    About <%= @user.first_name%>:
+    <h4>About <%= @user.first_name%>:</h4>
 </dt>
 <dd>
     <%= @user.about_me%>
@@ -17,7 +19,7 @@
     <div> </div>
 <% else %>
 <dt>
-    <%= @user.first_name%> is based in:
+    <h4><%= @user.first_name%> is based in:</h4>
 </dt>
 
 <dd>
@@ -27,12 +29,12 @@
 
 
 <% if @user.hosted_workshops.empty? && @user == current_user %>
-  <div>You haven't hosted any workshops yet!</div>
+  <div><h4>You haven't hosted any workshops yet! Visit the "Add a Workshop" link above to get started.</h4></div>
 <% elsif @user.hosted_workshops.empty? %>
-  <div><%=@user.first_name%> hasn't hosted any workshops yet!</div>
+  <div><h4><%=@user.first_name%> hasn't hosted any workshops yet!</h4></div>
 <% else %>
 <dt>
-    <%=@user.first_name%> has hosted <%= @user.hosted_workshops.count%> workshops: 
+    <h4><%=@user.first_name%> has <%= @user.hosted_workshops.count%> workshops:</h4>
 </dt>
 <table>
   <tr>
@@ -63,7 +65,7 @@
     </td>
 
     <td>
-      <image src="<%= workshop.image %>">
+      <image src="<%= workshop.image %>" width="300">
     </td>
 
     <td>

@@ -2,7 +2,7 @@
   <%= @workshop.title %>: Details
 </h1>
 
-
+<% if @workshop.provider_id == current_user.id %>
 <div>
   <div>
     <a href="/workshops">
@@ -80,6 +80,13 @@
   <dd>
     <%= @workshop.location %>
   </dd>
+  
+  <dt>
+    Other
+  </dt>
+  <dd>
+    <%= @workshop.other %>
+  </dd>
 
   <dt>
     Created:
@@ -95,4 +102,94 @@
     <%= time_ago_in_words(@workshop.updated_at) %> ago
   </dd>
 </dl>
+
+<% else %>
+
+  <div>
+    <a href="/workshops">
+      Go back
+    </a>
+  </div>
+
+<dl>
+  <dd>
+    <image src="<%= @workshop.image %>"> 
+  </dd>
+
+  <dt>
+    About this workshop
+  </dt>
+
+  <dd>
+    <%= @workshop.description %>
+  </dd>
+
+  <dt>
+    This workshop is led by: 
+  </dt>
+  
+  <dd>
+    <a href="/users/<%= @workshop.provider.id%>">
+    <%= @workshop.provider.first_name %>
+  </dd>
+  </a>
+
+  <dt>
+    Start Time
+  </dt>
+  <dd>
+    <%= @workshop.starts_at %>
+  </dd>
+
+  <dt>
+    End Time
+  </dt>
+  <dd>
+    <%= @workshop.ends_at %>
+  </dd>
+
+  <dt>
+    Price
+  </dt>
+  <dd>
+    $<%= @workshop.price %>
+  </dd>
+
+  <dt>
+    Capacity
+  </dt>
+  <dd>
+    <%= @workshop.capacity %>
+  </dd>
+
+  <dt>
+    Location
+  </dt>
+  <dd>
+    <%= @workshop.location %>
+  </dd>
+  
+  <dt>
+    Other
+  </dt>
+  <dd>
+    <%= @workshop.other %>
+  </dd>
+
+  <dt>
+    Created:
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@workshop.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated:
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@workshop.updated_at) %> ago
+  </dd>
+</dl>
+
+<% end %>
 
